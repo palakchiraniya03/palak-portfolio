@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+@theme {
+  --animate-orbit-slow: spinClockwise 20s linear infinite;
+  --animate-orbit-counter: spinCounterClockwise 14s linear infinite;
+  --animate-float: floatGently 6s ease-in-out infinite;
+  --animate-ambient-pulse: ambientGlowPulse 10s ease-in-out infinite;
+  --animate-hero-fade: heroEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-status-pulse: statusPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes spinClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+@keyframes floatGently {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes ambientGlowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
+}
+
+@keyframes heroEntrance {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.12); }
+}
+
+@layer base {
+  :root {
+    --bg-dark: #0B1017;
+    --card-bg: #111823;
+    --card-bg-alt: #121A25;
+    --accent-cyan: #19B8D0;
+    --accent-blue: #3B82F6;
+    --accent-violet: #8B5CF6;
+    --text-primary: #F3F4F6;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0B1017;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E293B;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3B82F6;
+  }
+}
+
+/* Background Technical Grid Overlay */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(25, 184, 208, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(25, 184, 208, 0.04) 1px, transparent 1px);
+}
+
+.bg-radial-spotlight {
+  background: radial-gradient(
+    650px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(25, 184, 208, 0.05),
+    transparent 80%
+  );
+}
+
+/* Text Gradients */
+.text-gradient-cyan-blue {
+  background: linear-gradient(135deg, #19B8D0 0%, #3B82F6 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-silver {
+  background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Refined Premium Product Card styling */
+.tech-card {
+  background: rgba(17, 24, 35, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+  background: rgba(20, 29, 43, 0.95);
+  border-color: rgba(25, 184, 208, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(25, 184, 208, 0.10);
+}
+
+/* Explicit fallback CSS animation classes */
+.animate-orbit-slow {
+  animation: spinClockwise 20s linear infinite !important;
+}
+
+.animate-orbit-counter {
+  animation: spinCounterClockwise 14s linear infinite !important;
+}
+
+.animate-float {
+  animation: floatGently 6s ease-in-out infinite !important;
+}
+
+.animate-ambient-pulse {
+  animation: ambientGlowPulse 10s ease-in-out infinite !important;
+}
+
+.animate-hero-fade {
+  animation: heroEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+.animate-status-pulse {
+  animation: statusPulse 2.5s infinite ease-in-out !important;
+}
+
+/* Accessibility & Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit-slow,
+  .animate-orbit-counter,
+  .animate-float,
+  .animate-ambient-pulse,
+  .animate-status-pulse {
+    animation: none !important;
+  }
+  .tech-card:hover {
+    transform: none !important;
+  }
+}
