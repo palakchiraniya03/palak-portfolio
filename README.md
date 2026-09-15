@@ -1,75 +1,58 @@
-# React + TypeScript + Vite
+# Palak Chiraniya — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing my projects, technical skills, achievements, certifications, and interests in AI/ML and full-stack development.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React**
+- **TypeScript**
+- **Vite**
+- **Tailwind CSS**
+- **FormSubmit**
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Interactive AI/ML-Inspired Hero Section**: 60fps cursor-following node field with technical AI/ML labels.
+- **Responsive Design**: Mobile-first layout optimized across desktop, tablet, and mobile displays.
+- **Interactive Project Visualizations**: Custom project-specific architecture micro-visualizations for each featured system.
+- **Animated Achievement Statistics**: Real-time count-up animation for LeetCode problem solving and competitive achievements.
+- **Skills Showcase**: Categorized tech stacks including Languages, Core CS, Frameworks, Databases, and AI/ML libraries.
+- **Resume Request Workflow**: Privacy-first request system with live email notifications.
+- **Social Integration**: GitHub, LinkedIn, and LeetCode profile links.
 
-## Expanding the ESLint configuration
+## Featured Projects
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### KrishiMitra
+AI-powered smart irrigation platform combining IoT, ML forecasting, rule-based irrigation decisions, and RAG.
+- **Repository**: [github.com/palakchiraniya03/krishimitra](https://github.com/palakchiraniya03/krishimitra)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### AI-Based Fake Identity Document Screening System
+Collaborative AI-based system for identity document screening, anomaly detection, and fraud risk analysis.
+- **Repository**: [github.com/tishabora6111/Al-Based-Fake-Identity-Document-Screening-System](https://github.com/tishabora6111/Al-Based-Fake-Identity-Document-Screening-System.git)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Pradarshak AI
+AI-powered loan scheme discovery platform using eligibility filtering, weighted ranking, and geospatial search.
+- **Access**: Private Repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Connect
 
+- **GitHub**: [https://github.com/palakchiraniya03](https://github.com/palakchiraniya03)
+- **LinkedIn**: [https://www.linkedin.com/in/palak-chiraniya](https://www.linkedin.com/in/palak-chiraniya)
+- **LeetCode**: [https://leetcode.com/u/palakchiraniya/](https://leetcode.com/u/palakchiraniya/)
+
+## Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+To build for production:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+# Build production bundle
+npm run build
 ```
