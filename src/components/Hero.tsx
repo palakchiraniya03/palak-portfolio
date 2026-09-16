@@ -4,6 +4,7 @@ import { PERSONAL_INFO } from '../data/portfolioData';
 import { ProfilePhotoPlaceholder } from './ProfilePhotoPlaceholder';
 import { MagneticButton } from './MagneticButton';
 import { GithubIcon } from './SocialIcons';
+import { InteractiveHeroTitle } from './InteractiveHeroTitle';
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -30,15 +31,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
             <span>{PERSONAL_INFO.status}</span>
           </div>
 
-          {/* Large Editorial Name */}
+          {/* Large Editorial Name with Interactive Spotlight Reveal */}
           <div
             className="space-y-1 animate-hero-fade"
             style={{ animationDelay: '200ms' }}
           >
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none font-sans uppercase">
-              PALAK <br />
-              <span className="text-gradient-cyan-blue">CHIRANIYA</span>
-            </h1>
+            <InteractiveHeroTitle />
           </div>
 
           {/* Roles & Education Subtitle */}
