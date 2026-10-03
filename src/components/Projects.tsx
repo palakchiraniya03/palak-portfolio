@@ -139,16 +139,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
 
           {/* Title & Subtitle */}
-          <div>
-            <div className="flex items-center gap-3 mb-1">
-              <div className="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80 shrink-0 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300">
+          <div className="mb-2">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="p-3 rounded-xl bg-slate-800/50 border border-slate-700/50 shrink-0 group-hover:scale-110 group-hover:border-cyan-500/40 transition-all duration-300">
                 {getProjectIcon(project.id)}
               </div>
-              <h3 className="text-2xl font-bold text-slate-100 tracking-tight group-hover:text-cyan-300 transition-colors">
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight group-hover:text-cyan-300 transition-colors">
                 {project.title}
               </h3>
             </div>
-            <p className="text-xs sm:text-sm font-mono text-cyan-400 font-medium ml-11 sm:ml-12">
+            <p className="text-sm sm:text-base font-mono text-cyan-400/90 font-medium ml-14 sm:ml-16">
               {project.subtitle}
             </p>
           </div>
@@ -167,45 +167,47 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             </div>
           )}
 
-          {/* Technology Badges */}
-          <div className="pt-1 flex flex-wrap gap-2">
-            {project.technologies.map((tech) => (
-              <span
-                key={tech}
-                className="px-2.5 py-1 rounded-lg bg-[#16202e] border border-slate-700/60 text-xs font-mono text-cyan-300 shadow-sm hover:border-cyan-500/40 transition-colors"
-              >
-                {tech}
-              </span>
+          {/* Technology Row */}
+          <div className="pt-3 flex flex-wrap items-center gap-x-2 gap-y-1">
+            {project.technologies.map((tech, idx) => (
+              <React.Fragment key={tech}>
+                <span className="text-xs font-mono text-slate-400 group-hover:text-cyan-300 transition-colors">
+                  {tech}
+                </span>
+                {idx < project.technologies.length - 1 && (
+                  <span className="text-slate-600 text-[10px]">•</span>
+                )}
+              </React.Fragment>
             ))}
           </div>
 
         </div>
 
         {/* Right Action & Metadata Column */}
-        <div className="lg:col-span-4 flex flex-col justify-between h-full pt-4 lg:pt-0 lg:border-l lg:border-slate-800/80 lg:pl-6 space-y-3">
+        <div className="lg:col-span-4 flex flex-col justify-between h-full pt-6 lg:pt-0 lg:border-l lg:border-slate-800/50 lg:pl-8 space-y-6">
           
           {/* Project-Specific Micro-Visualization */}
           <ProjectMicroVisual projectId={project.id} isHovered={isHovered} />
 
           {/* Metadata Summary & Pipeline Flow */}
-          <div className="space-y-3">
-            <div className="space-y-2">
-              <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-medium">
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-medium">
                 Metadata & Attributes
               </div>
-              <div className="p-3.5 rounded-xl bg-[#16202e] border border-slate-700/50 space-y-2 font-mono text-xs">
+              <div className="p-4 rounded-xl bg-slate-800/20 border border-slate-800/60 space-y-3 font-mono text-xs">
                 <div className="flex items-center justify-between text-slate-300">
-                  <span className="text-slate-400">CATEGORY:</span>
-                  <span className="text-cyan-400 font-semibold">{project.projectType}</span>
+                  <span className="text-slate-500">CATEGORY:</span>
+                  <span className="text-cyan-400/90 font-semibold">{project.projectType}</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-300">
-                  <span className="text-slate-400">{project.focusOrContextLabel}:</span>
-                  <span className="text-slate-200 font-medium">{project.focusOrContextValue}</span>
+                  <span className="text-slate-500">{project.focusOrContextLabel}:</span>
+                  <span className="text-slate-300 font-medium">{project.focusOrContextValue}</span>
                 </div>
                 {project.isPrivate && (
-                  <div className="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800">
-                    <span className="text-slate-400">ACCESS:</span>
-                    <span className="text-amber-400 font-medium flex items-center gap-1">
+                  <div className="flex items-center justify-between text-slate-300 pt-2 border-t border-slate-800/60">
+                    <span className="text-slate-500">ACCESS:</span>
+                    <span className="text-amber-400/90 font-medium flex items-center gap-1">
                       <Lock className="w-3 h-3" /> Private Repo
                     </span>
                   </div>
@@ -215,20 +217,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
             {/* Minimal Pipeline Flow Visual */}
             {project.flowSteps && project.flowSteps.length > 0 && (
-              <div className="space-y-2 pt-1">
-                <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider font-medium flex items-center justify-between">
+              <div className="space-y-3 pt-1">
+                <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider font-medium flex items-center justify-between">
                   <span>Architecture Flow</span>
-                  <span className="text-[10px] text-cyan-400 font-mono font-semibold">PIPELINE</span>
+                  <span className="text-[10px] text-cyan-500/70 font-mono font-semibold">PIPELINE</span>
                 </div>
-                <div className="p-3 rounded-xl bg-[#16202e]/80 border border-slate-700/50">
+                <div className="p-4 rounded-xl bg-slate-800/20 border border-slate-800/60">
                   <div className="flex items-center gap-1.5 flex-wrap font-mono text-[11px]">
                     {project.flowSteps.map((step, idx) => (
                       <React.Fragment key={step}>
-                        <span className="px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700/60 text-slate-200 font-medium shrink-0">
+                        <span className="px-2 py-1 rounded bg-slate-800/40 border border-slate-700/40 text-slate-300 font-medium shrink-0">
                           {step}
                         </span>
                         {idx < project.flowSteps!.length - 1 && (
-                          <ChevronRight className="w-3.5 h-3.5 text-cyan-400 shrink-0 opacity-70" />
+                          <ChevronRight className="w-3.5 h-3.5 text-cyan-500/50 shrink-0" />
                         )}
                       </React.Fragment>
                     ))}

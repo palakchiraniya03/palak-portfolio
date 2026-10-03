@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
     focusOrContextLabel: "CONTEXT",
     focusOrContextValue: "SIH 2026",
     context: "SIH 2026",
-    isPrivate: true,
+    githubUrl: "https://github.com/palakchiraniya03/PradarsakAI",
     flowSteps: ["Eligibility", "Ranking", "Geo Search"],
     technologies: [
       "TypeScript",

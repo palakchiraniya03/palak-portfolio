@@ -1,5 +1,30 @@
 import React from 'react';
 import { ScrollReveal } from './ScrollReveal';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 export const About: React.FC = () => {
   return (
@@ -43,50 +68,55 @@ export const About: React.FC = () => {
           </div>
 
           {/* Right Column: Three Compact Supporting Information Blocks */}
-          <div className="lg:col-span-5 space-y-4">
-            
-            {/* Block 01: WHAT I BUILD */}
-            <ScrollReveal delay={150}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#111823]/90 border border-slate-800/80 hover:border-cyan-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm group">
-                <div className="flex items-center gap-2 mb-2 font-mono text-xs font-semibold">
-                  <span className="text-cyan-400">01</span>
-                  <span className="text-slate-500">•</span>
-                  <span className="text-slate-200 uppercase tracking-wider">WHAT I BUILD</span>
+          <div className="lg:col-span-5 pt-8 lg:pt-0">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              className="flex flex-col"
+            >
+              
+              {/* Item 01 */}
+              <motion.div variants={itemVariants} className="group flex flex-col sm:flex-row gap-2 sm:gap-8 py-6 border-t border-slate-800/80 hover:border-slate-700 transition-colors duration-500">
+                <div className="font-mono text-sm font-semibold text-slate-500 group-hover:text-white transition-colors duration-500 shrink-0 sm:w-8 mt-0.5">
+                  01
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                  AI-powered applications, intelligent backend systems, and full-stack products that solve practical problems.
-                </p>
-              </div>
-            </ScrollReveal>
-
-            {/* Block 02: WHAT I ENJOY */}
-            <ScrollReveal delay={250}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#111823]/90 border border-slate-800/80 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm group">
-                <div className="flex items-center gap-2 mb-2 font-mono text-xs font-semibold">
-                  <span className="text-blue-400">02</span>
-                  <span className="text-slate-500">•</span>
-                  <span className="text-slate-200 uppercase tracking-wider">WHAT I ENJOY</span>
+                <div className="space-y-2 group-hover:translate-x-2 transition-transform duration-500">
+                  <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider group-hover:text-cyan-400 transition-colors duration-500">WHAT I BUILD</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed font-sans group-hover:text-slate-300 transition-colors duration-500">
+                    AI-powered applications, intelligent backend systems, and full-stack products that solve practical problems.
+                  </p>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
-                  Exploring new technologies, solving challenging problems, and turning ideas into working products through experimentation and iteration.
-                </p>
-              </div>
-            </ScrollReveal>
+              </motion.div>
 
-            {/* Block 03: CURRENTLY EXPLORING */}
-            <ScrollReveal delay={350}>
-              <div className="p-5 sm:p-6 rounded-2xl bg-[#111823]/90 border border-slate-800/80 hover:border-violet-500/40 transition-all duration-300 hover:-translate-y-1 shadow-sm group">
-                <div className="flex items-center gap-2 mb-2 font-mono text-xs font-semibold">
-                  <span className="text-violet-400">03</span>
-                  <span className="text-slate-500">•</span>
-                  <span className="text-slate-200 uppercase tracking-wider">CURRENTLY EXPLORING</span>
+              {/* Item 02 */}
+              <motion.div variants={itemVariants} className="group flex flex-col sm:flex-row gap-2 sm:gap-8 py-6 border-t border-slate-800/80 hover:border-slate-700 transition-colors duration-500">
+                <div className="font-mono text-sm font-semibold text-slate-500 group-hover:text-white transition-colors duration-500 shrink-0 sm:w-8 mt-0.5">
+                  02
                 </div>
-                <p className="text-xs sm:text-sm font-mono text-cyan-300/90 leading-relaxed">
-                  AI/ML • Computer Vision • RAG • Backend Engineering • Intelligent Systems
-                </p>
-              </div>
-            </ScrollReveal>
+                <div className="space-y-2 group-hover:translate-x-2 transition-transform duration-500">
+                  <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider group-hover:text-cyan-400 transition-colors duration-500">WHAT I ENJOY</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed font-sans group-hover:text-slate-300 transition-colors duration-500">
+                    Exploring new technologies, solving challenging problems, and turning ideas into working products through experimentation and iteration.
+                  </p>
+                </div>
+              </motion.div>
 
+              {/* Item 03 */}
+              <motion.div variants={itemVariants} className="group flex flex-col sm:flex-row gap-2 sm:gap-8 py-6 border-t border-b border-slate-800/80 hover:border-slate-700 transition-colors duration-500">
+                <div className="font-mono text-sm font-semibold text-slate-500 group-hover:text-white transition-colors duration-500 shrink-0 sm:w-8 mt-0.5">
+                  03
+                </div>
+                <div className="space-y-2 group-hover:translate-x-2 transition-transform duration-500">
+                  <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wider group-hover:text-cyan-400 transition-colors duration-500">CURRENTLY EXPLORING</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed font-sans group-hover:text-slate-300 transition-colors duration-500">
+                    AI/ML • Computer Vision • RAG • Backend Engineering • Intelligent Systems
+                  </p>
+                </div>
+              </motion.div>
+
+            </motion.div>
           </div>
 
         </div>

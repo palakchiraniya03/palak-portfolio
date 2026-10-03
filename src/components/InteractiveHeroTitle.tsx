@@ -75,7 +75,7 @@ export const InteractiveHeroTitle: React.FC = () => {
       {/* Base Title (Normal State - 100% Unchanged) */}
       <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-none font-sans uppercase relative z-10">
         PALAK <br />
-        <span className="text-gradient-cyan-blue">CHIRANIYA</span>
+        <span className="text-white">CHIRANIYA</span>
       </h1>
 
       {/* Underlying Technical Lens Layer (~140px Soft Feathered Radial Mask Reveal) */}
@@ -98,7 +98,7 @@ export const InteractiveHeroTitle: React.FC = () => {
           style={{
             left: `${pos.x}px`,
             top: `${pos.y}px`,
-            background: 'radial-gradient(circle, rgba(25, 184, 208, 0.28) 0%, rgba(139, 92, 246, 0.16) 55%, transparent 80%)',
+            background: 'radial-gradient(circle, rgba(241, 245, 249, 0.1) 0%, rgba(25, 184, 208, 0.05) 55%, transparent 80%)',
           }}
         />
 
@@ -176,7 +176,7 @@ export const InteractiveHeroTitle: React.FC = () => {
         {/* Title Layer inside lens (70% Opacity reveal so underlying network layer shines through clearly) */}
         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight text-white/70 leading-none font-sans uppercase relative z-30 pointer-events-none">
           PALAK <br />
-          <span className="text-gradient-cyan-blue opacity-70">CHIRANIYA</span>
+          <span className="text-white/70">CHIRANIYA</span>
         </h1>
       </div>
     </div>
