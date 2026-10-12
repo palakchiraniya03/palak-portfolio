@@ -60,7 +60,7 @@ export const Achievements = () => {
                     {/* Eased Count-Up Stat */}
                     <div className="mb-4">
                       <div className="text-5xl sm:text-6xl lg:text-7xl font-extrabold font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 tracking-tight">
-                        <CountUpNumber end={250} suffix="+" duration={1800} />
+                        <CountUpNumber end={300} suffix="+" duration={1800} />
                       </div>
                       <p className="text-lg font-bold text-slate-200 mt-2">
                         Problems Solved

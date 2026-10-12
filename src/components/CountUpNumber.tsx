@@ -7,7 +7,7 @@ interface CountUpNumberProps {
 }
 
 export const CountUpNumber: React.FC<CountUpNumberProps> = ({
-  end = 250,
+  end = 300,
   suffix = '+',
   duration = 1800,
 }) => {
