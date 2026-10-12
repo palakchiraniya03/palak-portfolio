@@ -57,7 +57,6 @@ export const PERSONAL_INFO = {
   socialLinks: {
     github: "https://github.com/palakchiraniya03",
     linkedin: "https://www.linkedin.com/in/palak-chiraniya",
-    leetcode: "https://leetcode.com/u/palakchiraniya/",
     email: "palakchiraniya@gmail.com",
     resume: "#"
   }
@@ -162,9 +161,9 @@ export const PROJECTS: Project[] = [
 export const ACHIEVEMENTS: Achievement[] = [
   {
     id: "leetcode",
-    title: "250+ DSA Problems Solved",
+    title: "300+ DSA Problems Solved",
     tag: "LeetCode",
-    detail: "Solved 250+ Data Structures & Algorithms problems on LeetCode demonstrating strong problem solving.",
+    detail: "Solved 300+ Data Structures & Algorithms problems on LeetCode demonstrating strong problem solving.",
     iconName: "Code"
   },
   {

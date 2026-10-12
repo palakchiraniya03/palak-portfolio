@@ -95,13 +95,6 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
                 </div>
               </MagneticButton>
 
-              <MagneticButton href={PERSONAL_INFO.socialLinks.leetcode} target="_blank" rel="noopener noreferrer">
-                <div className="px-5 py-3 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-cyan-500/40 hover:-translate-y-0.5">
-                  <Code className="w-4 h-4 text-amber-400" />
-                  <span>LeetCode</span>
-                </div>
-              </MagneticButton>
-
               <MagneticButton onClick={onOpenResume}>
                 <div className="px-5 py-3 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-violet-500/40 hover:-translate-y-0.5">
                   <FileText className="w-4 h-4 text-violet-400" />

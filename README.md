@@ -18,7 +18,7 @@ Personal portfolio website showcasing my projects, technical skills, achievement
 - **Animated Achievement Statistics**: Real-time count-up animation for LeetCode problem solving and competitive achievements.
 - **Skills Showcase**: Categorized tech stacks including Languages, Core CS, Frameworks, Databases, and AI/ML libraries.
 - **Resume Request Workflow**: Privacy-first request system with live email notifications.
-- **Social Integration**: GitHub, LinkedIn, and LeetCode profile links.
+- **Social Integration**: GitHub and Linkedin profile links.
 
 ## Featured Projects
 
@@ -38,7 +38,6 @@ AI-powered loan scheme discovery platform using eligibility filtering, weighted 
 
 - **GitHub**: [https://github.com/palakchiraniya03](https://github.com/palakchiraniya03)
 - **LinkedIn**: [https://www.linkedin.com/in/palak-chiraniya](https://www.linkedin.com/in/palak-chiraniya)
-- **LeetCode**: [https://leetcode.com/u/palakchiraniya/](https://leetcode.com/u/palakchiraniya/)
 
 ## Local Development
 
