@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Code, FileText, Copy, Check, ArrowUp } from 'lucide-react';
+import { Mail, FileText, Copy, Check, ArrowUp } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
