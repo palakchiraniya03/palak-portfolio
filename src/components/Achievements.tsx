@@ -52,7 +52,7 @@ export const Achievements = () => {
                       <span className="inline-block text-[11px] font-mono font-semibold uppercase tracking-wider text-[#9DB7A5] px-3 py-1 rounded bg-[#9DB7A5]/10 border border-[#9DB7A5]/30">
                         {leetcodeAchievement.tag}
                       </span>
-                      <div className="w-12 h-12 rounded-xl bg-[#303030] border border-[#41403C] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-[#303030] border border-[#41403C] flex items-center justify-center shrink-0 group-hover:border-[#9DB7A5]/40 transition-colors duration-200">
                         {getAchievementIcon(leetcodeAchievement.iconName)}
                       </div>
                     </div>
@@ -84,10 +84,10 @@ export const Achievements = () => {
           {/* Other Achievements Column */}
           <div className="lg:col-span-7 flex flex-col justify-between gap-6">
             {otherAchievements.map((item, idx) => (
-              <ScrollReveal key={item.id} delay={150 + idx * 100}>
-                <div className="tech-card p-6 sm:p-7 rounded-2xl bg-[#292929] border border-[#41403C] relative overflow-hidden group hover:border-[#9DB7A5]/50 shadow-sm">
+              <ScrollReveal key={item.id} delay={100 + idx * 70}>
+                <div className="tech-card p-6 sm:p-7 rounded-2xl bg-[#292929] border border-[#41403C] relative overflow-hidden group hover:border-[#9DB7A5]/40 shadow-sm">
                   <div className="flex items-start gap-5">
-                    <div className="w-12 h-12 rounded-xl bg-[#303030] border border-[#41403C] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-[#303030] border border-[#41403C] flex items-center justify-center shrink-0 group-hover:border-[#9DB7A5]/40 transition-colors duration-200">
                       {getAchievementIcon(item.iconName)}
                     </div>
 

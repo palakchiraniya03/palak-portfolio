@@ -61,17 +61,17 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     switch (direction) {
       case 'up':
-        return 'opacity-0 translate-y-6';
+        return 'opacity-0 translate-y-3.5';
       case 'down':
-        return 'opacity-0 -translate-y-6';
+        return 'opacity-0 -translate-y-3.5';
       case 'left':
-        return 'opacity-0 translate-x-6';
+        return 'opacity-0 translate-x-3.5';
       case 'right':
-        return 'opacity-0 -translate-x-6';
+        return 'opacity-0 -translate-x-3.5';
       case 'none':
         return 'opacity-0';
       default:
-        return 'opacity-0 translate-y-6';
+        return 'opacity-0 translate-y-3.5';
     }
   };
 
@@ -79,7 +79,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
     <div
       ref={ref}
       style={{
-        transitionDuration: '600ms',
+        transitionDuration: '550ms',
         transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
         transitionDelay: `${delay}ms`,
         willChange: 'opacity, transform',

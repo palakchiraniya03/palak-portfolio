@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Sparkles, CheckCircle2, Users, ArrowRight, Lock, ShieldCheck, Sprout, Database, ChevronRight } from 'lucide-react';
+import React from 'react';
+import { Sparkles, CheckCircle2, Users, ArrowRight, Lock, Sprout, Database, ChevronRight } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
 import { GithubIcon } from './SocialIcons';
 import { ScrollReveal } from './ScrollReveal';
-import { ProjectMicroVisual } from './ProjectMicroVisual';
+import { ProjectShowcaseVisual } from './ProjectShowcaseVisual';
 
 export const Projects = () => {
   return (
@@ -25,12 +25,17 @@ export const Projects = () => {
           </h2>
         </ScrollReveal>
 
-        {/* Streamlined Visually Balanced Projects Stack */}
-        <div className="space-y-8">
+        {/* Projects Stack: Each Project Card is immediately followed by its large showcase visual */}
+        <div className="space-y-16">
           {PROJECTS.map((project) => (
-            <ScrollReveal key={project.id} delay={150}>
-              <ProjectCard project={project} />
-            </ScrollReveal>
+            <div key={project.id} className="space-y-6">
+              <ScrollReveal delay={100}>
+                <ProjectCard project={project} />
+              </ScrollReveal>
+              <ScrollReveal delay={180}>
+                <ProjectShowcaseVisual projectId={project.id} />
+              </ScrollReveal>
+            </div>
           ))}
         </div>
 
@@ -44,47 +49,10 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isHovered) setIsHovered(true);
-
-    // Disable tilt on small screens/touch
-    if (window.innerWidth < 768) return;
-
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    // Set mouse spotlight coordinates
-    e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-
-    // Subtle 3D tilt max 2.5deg
-    setTilt({
-      x: (-y / rect.height) * 2.5,
-      y: (x / rect.width) * 2.5,
-    });
-  };
-
-  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    setIsHovered(false);
-    setTilt({ x: 0, y: 0 });
-    e.currentTarget.style.setProperty('--mouse-x', `50%`);
-    e.currentTarget.style.setProperty('--mouse-y', `50%`);
-  };
-
   const getProjectIcon = (id: string) => {
     switch (id) {
       case 'krishimitra':
         return <Sprout className="w-5 h-5 text-[#9DB7A5]" />;
-      case 'fake-id-screening':
-        return <ShieldCheck className="w-5 h-5 text-[#9DB7A5]" />;
       case 'pradarshak-ai':
         return <Database className="w-5 h-5 text-[#9DB7A5]" />;
       default:
@@ -93,27 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div
-      onMouseEnter={handleMouseEnter}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-        transition: 'transform 0.25s ease-out',
-      }}
-      className="tech-card p-5 sm:p-6.5 rounded-2xl relative overflow-hidden group bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/50 shadow-md shadow-black/30 transition-all duration-300"
-    >
-      {/* Subtle Mouse-Following Spotlight Radial Glow */}
-      <div
-        className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{
-          background: `radial-gradient(500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(157, 183, 165, 0.08), transparent 80%)`,
-        }}
-      />
-
-      {/* Subtle background ambient corner glow */}
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#9DB7A5]/5 blur-3xl pointer-events-none group-hover:bg-[#9DB7A5]/10 transition-all duration-500" />
-
+    <div className="tech-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/40 shadow-sm">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative z-10">
         
         {/* Left main content column */}
@@ -141,10 +89,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           {/* Title & Subtitle */}
           <div className="mb-2">
             <div className="flex items-center gap-4 mb-2">
-              <div className="p-3 rounded-xl bg-[#303030] border border-[#41403C] shrink-0 group-hover:scale-110 group-hover:border-[#9DB7A5]/40 transition-all duration-300">
+              <div className="p-3 rounded-xl bg-[#303030] border border-[#41403C] shrink-0 group-hover:border-[#9DB7A5]/40 transition-colors duration-200">
                 {getProjectIcon(project.id)}
               </div>
-              <h3 className="text-3xl sm:text-4xl font-extrabold text-[#F4F1EA] tracking-tight group-hover:text-[#9DB7A5] transition-colors">
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-[#F4F1EA] tracking-tight group-hover:text-[#9DB7A5] transition-colors duration-200">
                 {project.title}
               </h3>
             </div>
@@ -186,9 +134,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         {/* Right Action & Metadata Column */}
         <div className="lg:col-span-4 flex flex-col justify-between h-full pt-6 lg:pt-0 lg:border-l lg:border-[#41403C]/50 lg:pl-8 space-y-6">
           
-          {/* Project-Specific Micro-Visualization */}
-          <ProjectMicroVisual projectId={project.id} isHovered={isHovered} />
-
           {/* Metadata Summary & Pipeline Flow */}
           <div className="space-y-6">
             <div className="space-y-3">
@@ -255,12 +200,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </div>
             ) : project.githubUrl ? (
               <MagneticButton href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <div className="w-full px-4 py-3 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center justify-between gap-2 transition-all duration-300 shadow-md shadow-[#9DB7A5]/20 hover:shadow-[#9DB7A5]/35 hover:-translate-y-0.5 group/btn">
+                <div className="w-full px-4 py-3 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center justify-between gap-2 transition-all duration-200 shadow-sm hover:shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5 group/btn">
                   <div className="flex items-center gap-2">
                     <GithubIcon className="w-4 h-4" />
                     <span>View Repository</span>
                   </div>
-                  <ArrowRight className="w-4 h-4 opacity-80 group-hover/btn:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-4 h-4 opacity-80 group-hover/btn:translate-x-1 transition-transform duration-200" />
                 </div>
               </MagneticButton>
             ) : null}

@@ -57,7 +57,7 @@ export const PERSONAL_INFO = {
   socialLinks: {
     github: "https://github.com/palakchiraniya03",
     linkedin: "https://www.linkedin.com/in/palak-chiraniya",
-    email: "palakchiraniya@gmail.com",
+    email: "palakschiraniya@gmail.com",
     resume: "#"
   }
 };
@@ -97,7 +97,7 @@ export const PROJECTS: Project[] = [
     projectType: "AI / IoT",
     focusOrContextLabel: "FOCUS",
     focusOrContextValue: "Smart Irrigation",
-    flowSteps: ["Sensor", "Backend", "ML / Rules", "Irrigation"],
+    flowSteps: ["ESP32 Sensing", "Firebase & FastAPI", "ML & Rule Engine", "Advisory App"],
     technologies: [
       "Python",
       "FastAPI",
@@ -115,23 +115,6 @@ export const PROJECTS: Project[] = [
       "Engineered a Scikit-learn ML pipeline across 9 crop types and integrated it with REST APIs, Firebase and ESP32."
     ],
     githubUrl: "https://github.com/palakchiraniya03/krishimitra"
-  },
-  {
-    id: "fake-id-screening",
-    title: "AI-Based Fake Identity Document Screening System",
-    subtitle: "Fraud Detection & Risk Analysis Platform",
-    projectType: "AI / Computer Vision",
-    focusOrContextLabel: "CONTEXT",
-    focusOrContextValue: "Collaborative Project",
-    badge: "Collaborative Project",
-    flowSteps: ["Document", "Vision / Analysis", "Risk Scoring"],
-    technologies: ["Python", "OpenCV", "Machine Learning", "Fraud Detection"],
-    points: [
-      "Engineered an AI-driven document screening system to verify identity credentials and detect tampering.",
-      "Identified visual inconsistencies and structural anomalies across submitted identity documents.",
-      "Implemented automated risk scoring & intelligent fraud analysis pipelines."
-    ],
-    githubUrl: "https://github.com/tishabora6111/Al-Based-Fake-Identity-Document-Screening-System.git"
   },
   {
     id: "pradarshak-ai",

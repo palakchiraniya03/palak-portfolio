@@ -31,7 +31,7 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
           <div className="tech-card p-8 sm:p-14 rounded-3xl relative overflow-hidden bg-[#292929] border border-[#41403C] text-center space-y-8 shadow-xl">
             
             {/* Subtle ambient light */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9DB7A5]/10 blur-3xl pointer-events-none animate-ambient-pulse" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9DB7A5]/[0.035] blur-3xl pointer-events-none" />
 
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
               <span className="text-xs font-mono uppercase tracking-widest text-[#9DB7A5] font-medium">
@@ -54,13 +54,13 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="px-4 py-2 rounded-xl bg-[#9DB7A5]/15 hover:bg-[#9DB7A5]/25 text-[#9DB7A5] border border-[#9DB7A5]/40 font-medium flex items-center gap-1.5 transition-all duration-300 shrink-0 hover:scale-105 cursor-pointer"
+                className="px-4 py-2 rounded-xl bg-[#9DB7A5]/15 hover:bg-[#9DB7A5]/25 text-[#9DB7A5] border border-[#9DB7A5]/40 font-medium flex items-center gap-1.5 transition-colors duration-200 shrink-0 cursor-pointer"
                 data-cursor="pointer"
               >
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-300">Copied!</span>
+                    <Check className="w-3.5 h-3.5 text-[#9DB7A5]" />
+                    <span className="text-[#9DB7A5]">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -75,29 +75,29 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4 relative z-10">
               
               <MagneticButton href={`mailto:${PERSONAL_INFO.socialLinks.email}`}>
-                <div className="px-5 py-3 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-md shadow-[#9DB7A5]/20 hover:shadow-[#9DB7A5]/35 hover:-translate-y-0.5">
+                <div className="px-5 py-3 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center gap-2 transition-all duration-200 shadow-sm hover:shadow-[0_4px_16px_rgba(0,0,0,0.3)] hover:-translate-y-0.5">
                   <Mail className="w-4 h-4" />
                   <span>Send Email</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton href={PERSONAL_INFO.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
-                  <LinkedinIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-200 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <LinkedinIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors duration-200" />
                   <span>LinkedIn</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton href={PERSONAL_INFO.socialLinks.github} target="_blank" rel="noopener noreferrer">
-                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
-                  <GithubIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-200 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <GithubIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors duration-200" />
                   <span>GitHub</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton onClick={onOpenResume}>
-                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
-                  <FileText className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-200 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <FileText className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors duration-200" />
                   <span>Resume</span>
                 </div>
               </MagneticButton>

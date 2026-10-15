@@ -263,13 +263,13 @@ export const Skills: React.FC = () => {
                 onClick={() => handleCategoryClick(idx)}
                 onMouseEnter={() => handleCategoryHover(idx)}
                 onMouseLeave={handleCategoryLeave}
-                className={`flex items-center gap-3.5 p-4 rounded-xl border text-left transition-all duration-300 group cursor-pointer ${
+                className={`flex items-center gap-3.5 p-4 rounded-xl border text-left transition-all duration-200 group cursor-pointer ${
                   isActive
-                    ? 'bg-[#303030] border-[#9DB7A5] text-[#F4F1EA] shadow-[0_0_20px_rgba(157,183,165,0.12)]'
+                    ? 'bg-[#303030] border-[#9DB7A5] text-[#F4F1EA] shadow-[0_4px_16px_rgba(0,0,0,0.3)]'
                     : 'bg-[#292929] border-[#41403C] hover:border-[#9DB7A5]/40 text-[#B8B3AA] hover:text-[#F4F1EA]'
                 }`}
               >
-                <span className={`font-mono text-base font-bold transition-colors ${
+                <span className={`font-mono text-base font-bold transition-colors duration-200 ${
                   isActive ? 'text-[#9DB7A5]' : 'text-[#B8B3AA]/50 group-hover:text-[#B8B3AA]'
                 }`}>
                   0{idx + 1}
@@ -306,14 +306,14 @@ export const Skills: React.FC = () => {
           <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-center">
             <button
               onClick={handlePrev}
-              className="p-3 rounded-xl bg-[#303030] border border-[#41403C] hover:border-[#9DB7A5] text-[#B8B3AA] hover:text-[#F4F1EA] transition-all cursor-pointer"
+              className="p-3 rounded-xl bg-[#303030] border border-[#41403C] hover:border-[#9DB7A5]/60 text-[#B8B3AA] hover:text-[#F4F1EA] transition-colors duration-200 cursor-pointer"
               aria-label="Previous skill"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="p-3 rounded-xl bg-[#303030] border border-[#41403C] hover:border-[#9DB7A5] text-[#B8B3AA] hover:text-[#F4F1EA] transition-all cursor-pointer"
+              className="p-3 rounded-xl bg-[#303030] border border-[#41403C] hover:border-[#9DB7A5]/60 text-[#B8B3AA] hover:text-[#F4F1EA] transition-colors duration-200 cursor-pointer"
               aria-label="Next skill"
             >
               <ChevronRight className="w-5 h-5" />
@@ -348,10 +348,10 @@ export const Skills: React.FC = () => {
               const IconComp = SKILL_ICONS[item.title || ''] || Code2;
               return (
                 <div
-                  className={`w-full h-full p-5 rounded-2xl flex flex-col justify-between select-none transition-all duration-300 ${
+                  className={`w-full h-full p-5 rounded-2xl flex flex-col justify-between select-none transition-all duration-200 ${
                     isActive
-                      ? 'bg-[#303030] border-2 border-[#9DB7A5] shadow-[0_0_24px_rgba(157,183,165,0.18)] scale-[1.03]'
-                      : 'bg-[#292929]/95 border border-[#41403C] hover:border-[#9DB7A5]/50'
+                      ? 'bg-[#303030] border border-[#9DB7A5] shadow-[0_4px_20px_rgba(0,0,0,0.4)]'
+                      : 'bg-[#292929]/95 border border-[#41403C] hover:border-[#9DB7A5]/40'
                   }`}
                 >
                   {/* Card Header: Icon + Active Status Dot */}

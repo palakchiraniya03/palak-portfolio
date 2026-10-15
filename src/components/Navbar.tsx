@@ -17,6 +17,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Achievements', href: '#achievements' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -52,21 +53,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
         {/* Brand Logo */}
         <a
           href="#home"
-          className="flex items-center gap-2.5 text-sm font-semibold tracking-wider text-[#F4F1EA] hover:text-[#9DB7A5] transition-colors uppercase font-mono"
+          className="flex items-center gap-2.5 text-sm font-semibold tracking-wider text-[#F4F1EA] hover:text-[#9DB7A5] transition-colors duration-200 uppercase font-mono"
         >
-          <span className="w-2.5 h-2.5 rounded-full bg-[#9DB7A5] shadow-[0_0_8px_rgba(157,183,165,0.8)]" />
+          <span className="w-2 h-2 rounded-full bg-[#9DB7A5]" />
           {PERSONAL_INFO.name}
         </a>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-7">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {navLinks.map((link) => {
             const isCurrent = activeSection === link.href.substring(1);
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-xs uppercase tracking-widest font-mono transition-all duration-200 relative py-1 ${
+                className={`text-xs uppercase tracking-widest font-mono transition-colors duration-200 relative py-1 ${
                   isCurrent
                     ? 'text-[#9DB7A5] font-medium'
                     : 'text-[#B8B3AA] hover:text-[#F4F1EA]'
@@ -74,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               >
                 {link.name}
                 {isCurrent && (
-                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#9DB7A5] rounded-full shadow-[0_0_6px_rgba(157,183,165,0.6)]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#9DB7A5] rounded-full" />
                 )}
               </a>
             );

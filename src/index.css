@@ -5,8 +5,8 @@
   --animate-orbit-counter: spinCounterClockwise 14s linear infinite;
   --animate-float: floatGently 6s ease-in-out infinite;
   --animate-ambient-pulse: ambientGlowPulse 10s ease-in-out infinite;
-  --animate-hero-fade: heroEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-status-pulse: statusPulse 2.5s infinite ease-in-out;
+  --animate-hero-fade: heroEntrance 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-status-pulse: statusPulse 2.8s infinite ease-in-out;
 }
 
 @keyframes spinClockwise {
@@ -21,22 +21,22 @@
 
 @keyframes floatGently {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 @keyframes ambientGlowPulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 0.9; transform: scale(1.06); }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.75; }
 }
 
 @keyframes heroEntrance {
-  0% { opacity: 0; transform: translateY(18px); }
+  0% { opacity: 0; transform: translateY(14px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes statusPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.12); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
 }
 
 @layer base {
@@ -52,6 +52,12 @@
     --border-color: #41403C;
     --bg-muted: #252525;
     --bg-hover: #303832;
+
+    /* Motion Tokens */
+    --duration-fast: 200ms;
+    --duration-normal: 260ms;
+    --duration-enter: 550ms;
+    --ease-natural: cubic-bezier(0.16, 1, 0.3, 1);
 
     /* Legacy mapping */
     --bg-dark: #202020;
@@ -126,20 +132,20 @@
 
 /* Refined Premium Product Card styling */
 .tech-card {
-  background: rgba(41, 41, 41, 0.90);
+  background: rgba(41, 41, 41, 0.92);
   border: 1px solid #41403C;
   backdrop-filter: blur(12px);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--duration-normal) var(--ease-natural),
+              border-color var(--duration-normal) var(--ease-natural),
+              background-color var(--duration-normal) var(--ease-natural),
+              box-shadow var(--duration-normal) var(--ease-natural);
 }
 
 .tech-card:hover {
-  transform: translateY(-5px);
-  background: rgba(48, 48, 48, 0.95);
-  border-color: rgba(157, 183, 165, 0.45);
-  box-shadow: 0 10px 30px -10px rgba(157, 183, 165, 0.10);
+  transform: translateY(-4px);
+  background: rgba(48, 48, 48, 0.98);
+  border-color: rgba(157, 183, 165, 0.4);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
 }
 
 /* Explicit fallback CSS animation classes */

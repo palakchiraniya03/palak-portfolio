@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, Send, Loader2, Mail, AlertCircle } from 'lucide-react';
+import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -10,7 +11,7 @@ export interface ResumeRequestPayload {
   email: string;
 }
 
-const TARGET_EMAIL = 'palakschiraniya@gmail.com';
+const TARGET_EMAIL = PERSONAL_INFO.socialLinks.email;
 const DEFAULT_ENDPOINT = `https://formsubmit.co/ajax/${TARGET_EMAIL}`;
 
 /**

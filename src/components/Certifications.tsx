@@ -77,7 +77,7 @@ export const Certifications: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="p-3 rounded-xl bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5] text-[#B8B3AA] hover:text-[#F4F1EA] transition-all cursor-pointer"
+                className="p-3 rounded-xl bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/60 text-[#B8B3AA] hover:text-[#F4F1EA] transition-colors duration-200 cursor-pointer"
                 aria-label="Previous credential"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -85,7 +85,7 @@ export const Certifications: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNext}
-                className="p-3 rounded-xl bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5] text-[#B8B3AA] hover:text-[#F4F1EA] transition-all cursor-pointer"
+                className="p-3 rounded-xl bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/60 text-[#B8B3AA] hover:text-[#F4F1EA] transition-colors duration-200 cursor-pointer"
                 aria-label="Next credential"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -103,15 +103,15 @@ export const Certifications: React.FC = () => {
             cardSize={isMobile ? 245 : 295}
             aspectRatio={1.05}
             spread={isMobile ? 70 : 170}
-            rotation={isMobile ? 5 : 7}
-            arc={isMobile ? 8 : 14}
-            animationDelay={0.3}
-            animationStagger={0.08}
-            bounciness={0.65}
+            rotation={isMobile ? 3.5 : 4.5}
+            arc={isMobile ? 6 : 9}
+            animationDelay={0.2}
+            animationStagger={0.06}
+            bounciness={0.2}
             enableHover={true}
-            pushDistance={isMobile ? 100 : 155}
-            hoverScale={isMobile ? 1.05 : 1.08}
-            borderWidth={1.5}
+            pushDistance={isMobile ? 75 : 105}
+            hoverScale={isMobile ? 1.02 : 1.035}
+            borderWidth={1}
             borderColor="#41403C"
             backgroundColor="#292929"
             radius={20}
