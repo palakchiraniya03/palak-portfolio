@@ -23,38 +23,38 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
   };
 
   return (
-    <section id="contact" className="py-24 relative z-10 border-t border-slate-800/60 bg-[#0B1017]">
+    <section id="contact" className="py-24 relative z-10 border-t border-[#41403C]/60 bg-[#202020]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         
         {/* Main Banner */}
         <ScrollReveal>
-          <div className="tech-card p-8 sm:p-14 rounded-3xl relative overflow-hidden bg-[#111823]/95 border border-slate-700/60 text-center space-y-8 shadow-xl">
+          <div className="tech-card p-8 sm:p-14 rounded-3xl relative overflow-hidden bg-[#292929] border border-[#41403C] text-center space-y-8 shadow-xl">
             
             {/* Subtle ambient light */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-3xl pointer-events-none animate-ambient-pulse" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#9DB7A5]/10 blur-3xl pointer-events-none animate-ambient-pulse" />
 
             <div className="max-w-2xl mx-auto space-y-4 relative z-10">
-              <span className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-medium">
+              <span className="text-xs font-mono uppercase tracking-widest text-[#9DB7A5] font-medium">
                 06. Let's Connect
               </span>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#F4F1EA] tracking-tight">
                 Get In Touch
               </h2>
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-[#B8B3AA] text-sm sm:text-base leading-relaxed">
                 I am actively seeking engineering opportunities, research collaborations, and software development challenges in AI/ML and backend systems.
               </p>
             </div>
 
             {/* Direct Email Copy Box */}
-            <div className="max-w-md mx-auto p-2.5 rounded-2xl bg-[#16202e] border border-slate-700/60 flex items-center justify-between gap-3 font-mono text-xs sm:text-sm relative z-10 shadow-sm">
-              <div className="flex items-center gap-2.5 px-3 text-slate-200 truncate">
-                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+            <div className="max-w-md mx-auto p-2.5 rounded-2xl bg-[#252525] border border-[#41403C] flex items-center justify-between gap-3 font-mono text-xs sm:text-sm relative z-10 shadow-sm">
+              <div className="flex items-center gap-2.5 px-3 text-[#F4F1EA] truncate">
+                <Mail className="w-4 h-4 text-[#9DB7A5] shrink-0" />
                 <span className="truncate">{PERSONAL_INFO.socialLinks.email}</span>
               </div>
               <button
                 type="button"
                 onClick={handleCopyEmail}
-                className="px-4 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/40 font-medium flex items-center gap-1.5 transition-all duration-300 shrink-0 hover:scale-105"
+                className="px-4 py-2 rounded-xl bg-[#9DB7A5]/15 hover:bg-[#9DB7A5]/25 text-[#9DB7A5] border border-[#9DB7A5]/40 font-medium flex items-center gap-1.5 transition-all duration-300 shrink-0 hover:scale-105 cursor-pointer"
                 data-cursor="pointer"
               >
                 {copied ? (
@@ -75,29 +75,29 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
             <div className="flex flex-wrap items-center justify-center gap-4 pt-4 relative z-10">
               
               <MagneticButton href={`mailto:${PERSONAL_INFO.socialLinks.email}`}>
-                <div className="px-5 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-md shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:-translate-y-0.5">
+                <div className="px-5 py-3 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-md shadow-[#9DB7A5]/20 hover:shadow-[#9DB7A5]/35 hover:-translate-y-0.5">
                   <Mail className="w-4 h-4" />
                   <span>Send Email</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton href={PERSONAL_INFO.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-                <div className="px-5 py-3 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-cyan-500/40 hover:-translate-y-0.5">
-                  <LinkedinIcon className="w-4 h-4 text-blue-400" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <LinkedinIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
                   <span>LinkedIn</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton href={PERSONAL_INFO.socialLinks.github} target="_blank" rel="noopener noreferrer">
-                <div className="px-5 py-3 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-cyan-500/40 hover:-translate-y-0.5">
-                  <GithubIcon className="w-4 h-4 text-cyan-400" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <GithubIcon className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
                   <span>GitHub</span>
                 </div>
               </MagneticButton>
 
               <MagneticButton onClick={onOpenResume}>
-                <div className="px-5 py-3 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-violet-500/40 hover:-translate-y-0.5">
-                  <FileText className="w-4 h-4 text-violet-400" />
+                <div className="group px-5 py-3 rounded-xl bg-[#252525] hover:bg-[#303832] border border-[#41403C] text-[#B8B3AA] hover:text-[#F4F1EA] font-medium text-xs font-mono flex items-center gap-2 transition-all duration-300 shadow-sm hover:border-[#9DB7A5]/40 hover:-translate-y-0.5">
+                  <FileText className="w-4 h-4 text-[#B8B3AA] group-hover:text-[#9DB7A5] transition-colors" />
                   <span>Resume</span>
                 </div>
               </MagneticButton>
@@ -108,14 +108,14 @@ export const Contact: React.FC<ContactProps> = ({ onOpenResume }) => {
         </ScrollReveal>
 
         {/* Footer */}
-        <div className="mt-16 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-slate-400">
+        <div className="mt-16 pt-8 border-t border-[#41403C]/60 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-[#B8B3AA]">
           <div>
             © {new Date().getFullYear()} {PERSONAL_INFO.name}. Built with React, TypeScript & Vite.
           </div>
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-cyan-400 transition-colors"
+            className="flex items-center gap-2 hover:text-[#9DB7A5] transition-colors cursor-pointer"
             data-cursor="pointer"
           >
             <span>Back to top</span>

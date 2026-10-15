@@ -85,25 +85,25 @@ export const ProfilePhotoPlaceholder: React.FC<ProfilePhotoPlaceholderProps> = (
         />
 
         {/* Ambient background glow */}
-        <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-slate-500/5 via-slate-600/5 to-slate-500/5 blur-2xl group-hover:from-cyan-500/10 group-hover:to-slate-600/10 transition-all duration-500 pointer-events-none" />
+        <div className="absolute inset-6 rounded-full bg-gradient-to-tr from-[#9DB7A5]/5 via-[#41403C]/5 to-[#9DB7A5]/5 blur-2xl group-hover:from-[#9DB7A5]/10 group-hover:to-[#41403C]/10 transition-all duration-500 pointer-events-none" />
 
         {/* Ring 1 (Outer Ring - Subtle, Dashed, Rotating Clockwise over 40s) */}
         <div
-          className="absolute inset-0 rounded-full border border-dashed border-slate-500/30 pointer-events-none z-10"
+          className="absolute inset-0 rounded-full border border-dashed border-[#41403C]/50 pointer-events-none z-10"
           style={{ animation: 'spinClockwise 40s linear infinite' }}
         >
         </div>
 
         {/* Ring 2 (Inner Ring - Subtle, Dotted, Rotating Counter-Clockwise over 30s) */}
         <div
-          className="absolute inset-5 sm:inset-6 rounded-full border border-dotted border-slate-500/30 pointer-events-none z-10"
+          className="absolute inset-5 sm:inset-6 rounded-full border border-dotted border-[#41403C]/50 pointer-events-none z-10"
           style={{ animation: 'spinCounterClockwise 30s linear infinite' }}
         >
         </div>
 
         {/* Parallax Central Circular Photo Frame (Static photo, non-rotating, 3D tilt response) */}
         <div
-          className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-[#111823] border border-slate-700/50 p-1.5 shadow-xl transition-transform duration-200 ease-out flex items-center justify-center overflow-hidden z-20 pointer-events-none group-hover:border-cyan-500/30"
+          className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-[#292929] border border-[#41403C] p-1.5 shadow-xl transition-transform duration-200 ease-out flex items-center justify-center overflow-hidden z-20 pointer-events-none group-hover:border-[#9DB7A5]/40"
           style={{
             transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
             transformStyle: 'preserve-3d',

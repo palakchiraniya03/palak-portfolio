@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BackgroundGrid } from './components/BackgroundGrid';
-import { CustomCursor } from './components/CustomCursor';
+import { GhostCursor } from './components/GhostCursor';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -15,12 +15,26 @@ function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#07080d] text-gray-100 relative selection:bg-cyan-500 selection:text-black">
+    <div className="min-h-screen bg-[#202020] text-[#F4F1EA] relative selection:bg-[#9DB7A5] selection:text-[#202020]">
       {/* Background radial spotlight & tech grid */}
       <BackgroundGrid />
 
-      {/* Interactive 2-stage custom cursor */}
-      <CustomCursor />
+      {/* Official React Bits Ghost Cursor fluid trail */}
+      <GhostCursor
+        color="#9DB7A5"
+        brightness={0.48}
+        size={60}
+        trailLength={18}
+        inertia={0.45}
+        turbulence={0.35}
+        drift={0.15}
+        grainIntensity={0.03}
+        bloomStrength={0.18}
+        bloomRadius={0.7}
+        fadeDelayMs={150}
+        fadeDurationMs={450}
+        zIndex={35}
+      />
 
       {/* Translucent integrated navbar */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />

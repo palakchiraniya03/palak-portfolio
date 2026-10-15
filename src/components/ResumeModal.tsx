@@ -129,17 +129,17 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-[420px] bg-[#111823] border border-slate-700/70 rounded-2xl shadow-xl p-6 sm:p-7 text-left overflow-hidden"
+        className="relative w-full max-w-[420px] bg-[#292929] border border-[#41403C] rounded-2xl shadow-2xl p-6 sm:p-7 text-left overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Subtle Top Accent Line */}
-        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-500/60 to-blue-500/60" />
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#9DB7A5]/80 to-[#9DB7A5]/20" />
 
         {/* Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4.5 right-4.5 p-1 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors"
+          className="absolute top-4.5 right-4.5 p-1 rounded-lg text-[#B8B3AA] hover:text-[#F4F1EA] hover:bg-[#303030] transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-4 h-4" />
@@ -148,24 +148,24 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         {isSubmitted ? (
           /* SUCCESS STATE */
           <div className="py-4 text-center space-y-4 animate-fade-in">
-            <div className="w-12 h-12 rounded-full bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
+            <div className="w-12 h-12 rounded-full bg-[#9DB7A5]/15 border border-[#9DB7A5]/30 flex items-center justify-center mx-auto text-[#9DB7A5]">
               <CheckCircle2 className="w-6 h-6" />
             </div>
 
             <div className="space-y-1">
-              <h3 className="text-xl font-bold text-white tracking-tight font-sans">
-                Request sent <span className="text-emerald-400">✓</span>
+              <h3 className="text-xl font-bold text-[#F4F1EA] tracking-tight font-sans">
+                Request sent <span className="text-[#9DB7A5]">✓</span>
               </h3>
-              <p className="text-xs text-slate-300 font-sans leading-relaxed">
+              <p className="text-xs text-[#B8B3AA] font-sans leading-relaxed">
                 Thanks! I'll get back to you soon.
               </p>
             </div>
 
-            <div className="pt-3 border-t border-slate-800/80">
+            <div className="pt-3 border-t border-[#41403C]">
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full py-2.5 rounded-xl bg-[#16202e] hover:bg-[#1f2c3f] border border-slate-700/60 text-slate-200 hover:text-white font-medium text-xs font-mono transition-colors cursor-pointer"
+                className="w-full py-2.5 rounded-xl bg-[#303030] hover:bg-[#303832] border border-[#41403C] text-[#F4F1EA] font-medium text-xs font-mono transition-colors cursor-pointer"
               >
                 Close
               </button>
@@ -176,10 +176,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
           <div className="space-y-5">
             {/* Header */}
             <div className="space-y-1 pr-6">
-              <h3 className="text-xl font-bold text-white tracking-tight font-sans">
+              <h3 className="text-xl font-bold text-[#F4F1EA] tracking-tight font-sans">
                 Would you like my resume?
               </h3>
-              <p className="text-xs text-slate-400 font-sans leading-relaxed">
+              <p className="text-xs text-[#B8B3AA] font-sans leading-relaxed">
                 Please provide your email address if you'd like me to share it with you.
               </p>
             </div>
@@ -188,11 +188,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
               {/* Email Address */}
               <div className="space-y-1.5">
-                <label htmlFor="email" className="block text-xs font-mono font-medium text-slate-300">
-                  Email address <span className="text-cyan-400">*</span>
+                <label htmlFor="email" className="block text-xs font-mono font-medium text-[#B8B3AA]">
+                  Email address <span className="text-[#9DB7A5]">*</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#B8B3AA]/60">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
@@ -205,10 +205,10 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                       if (submitError) setSubmitError(undefined);
                     }}
                     placeholder="your@email.com"
-                    className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#16202e] border text-xs sm:text-sm text-white placeholder-slate-500 font-sans transition-all duration-200 focus:outline-none focus:ring-1 ${
+                    className={`w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-[#202020] border text-xs sm:text-sm text-[#F4F1EA] placeholder-[#B8B3AA]/50 font-sans transition-all duration-200 focus:outline-none focus:ring-1 ${
                       error
                         ? 'border-rose-500/80 focus:border-rose-500 focus:ring-rose-500'
-                        : 'border-slate-700/80 focus:border-cyan-400 focus:ring-cyan-400'
+                        : 'border-[#41403C] focus:border-[#9DB7A5] focus:ring-[#9DB7A5]'
                     }`}
                   />
                 </div>
@@ -229,19 +229,19 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               )}
 
               {/* Actions */}
-              <div className="pt-2 flex items-center justify-end gap-2.5 border-t border-slate-800/80">
+              <div className="pt-2 flex items-center justify-end gap-2.5 border-t border-[#41403C]">
                 <button
                   type="button"
                   onClick={onClose}
                   disabled={isSubmitting}
-                  className="px-3.5 py-2 rounded-xl text-xs font-mono text-slate-400 hover:text-white transition-colors disabled:opacity-50 cursor-pointer"
+                  className="px-3.5 py-2 rounded-xl text-xs font-mono text-[#B8B3AA] hover:text-[#F4F1EA] transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs font-mono flex items-center gap-1.5 transition-all duration-200 shadow-sm disabled:opacity-60 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#9DB7A5] hover:bg-[#B3C9B9] text-[#202020] font-semibold text-xs font-mono flex items-center gap-1.5 transition-all duration-200 shadow-sm disabled:opacity-60 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <>

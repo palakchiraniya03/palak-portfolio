@@ -1,11 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
 
-// 4 tiny relative node offset positions around trailing cursor center
+// 4 tiny relative node offset positions around trailing cursor center (Warm Graphite + Sage Green)
 const GLOBAL_CURSOR_NODES = [
-  { id: 1, dx: -28, dy: -20, color: '#19B8D0' },
-  { id: 2, dx: 32, dy: -24, color: '#3B82F6' },
-  { id: 3, dx: -24, dy: 30, color: '#8B5CF6' },
-  { id: 4, dx: 36, dy: 26, color: '#19B8D0' },
+  { id: 1, dx: -28, dy: -20, color: '#9DB7A5' },
+  { id: 2, dx: 32, dy: -24, color: '#F4F1EA' },
+  { id: 3, dx: -24, dy: 30, color: '#B8B3AA' },
+  { id: 4, dx: 36, dy: 26, color: '#9DB7A5' },
 ];
 
 export const CustomCursor = () => {
@@ -136,7 +136,7 @@ export const CustomCursor = () => {
           width: isInteractive ? '170px' : '135px',
           height: isInteractive ? '170px' : '135px',
           transform: `translate3d(${ringPos.x}px, ${ringPos.y}px, 0)`,
-          background: `radial-gradient(circle, rgba(25, 184, 208, ${glowOpacity}) 0%, rgba(139, 92, 246, ${glowOpacity * 0.55}) 60%, transparent 80%)`,
+          background: `radial-gradient(circle, rgba(157, 183, 165, ${glowOpacity * 0.35}) 0%, rgba(65, 64, 60, ${glowOpacity * 0.2}) 60%, transparent 80%)`,
         }}
       />
 
@@ -163,7 +163,7 @@ export const CustomCursor = () => {
           y1={ringPos.y + GLOBAL_CURSOR_NODES[0].dy}
           x2={ringPos.x + GLOBAL_CURSOR_NODES[1].dx}
           y2={ringPos.y + GLOBAL_CURSOR_NODES[1].dy}
-          stroke="#19B8D0"
+          stroke="#9DB7A5"
           strokeWidth="1.2"
           strokeDasharray="3 3"
           opacity={lineOpacity * 0.85}
@@ -173,7 +173,7 @@ export const CustomCursor = () => {
           y1={ringPos.y + GLOBAL_CURSOR_NODES[2].dy}
           x2={ringPos.x + GLOBAL_CURSOR_NODES[3].dx}
           y2={ringPos.y + GLOBAL_CURSOR_NODES[3].dy}
-          stroke="#8B5CF6"
+          stroke="#B8B3AA"
           strokeWidth="1.2"
           strokeDasharray="3 3"
           opacity={lineOpacity * 0.85}
@@ -196,10 +196,10 @@ export const CustomCursor = () => {
       <div
         className={`fixed top-0 left-0 pointer-events-none rounded-full border transition-all duration-200 ease-out -translate-x-1/2 -translate-y-1/2 ${
           isInteractive
-            ? 'border-cyan-400/75 bg-cyan-500/10 shadow-[0_0_15px_rgba(25,184,208,0.25)]'
+            ? 'border-[#9DB7A5]/80 bg-[#9DB7A5]/10 shadow-[0_0_15px_rgba(157,183,165,0.25)]'
             : isHeading
-            ? 'border-cyan-400/55 bg-cyan-500/5'
-            : 'border-cyan-400/40 bg-transparent'
+            ? 'border-[#9DB7A5]/60 bg-[#9DB7A5]/5'
+            : 'border-[#9DB7A5]/40 bg-transparent'
         }`}
         style={{
           width: `${ringSize}px`,
@@ -210,7 +210,7 @@ export const CustomCursor = () => {
 
       {/* Inner Dot Cursor */}
       <div
-        className="fixed top-0 left-0 w-2 h-2 bg-cyan-400 rounded-full pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_8px_rgba(25,184,208,0.85)] -translate-x-1/2 -translate-y-1/2"
+        className="fixed top-0 left-0 w-2 h-2 bg-[#9DB7A5] rounded-full pointer-events-none transition-transform duration-75 ease-out shadow-[0_0_8px_rgba(157,183,165,0.85)] -translate-x-1/2 -translate-y-1/2"
         style={{
           transform: `translate3d(${pos.x}px, ${pos.y}px, 0) scale(${isInteractive ? 0.6 : 1})`,
         }}
