@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, CheckCircle2, Users, ArrowRight, Lock, Sprout, Database, ChevronRight } from 'lucide-react';
+import { Sparkles, CheckCircle2, Users, ArrowRight, Lock, Sprout, Database, ChevronRight, BookOpen, Globe, Shield } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
@@ -25,16 +25,18 @@ export const Projects = () => {
           </h2>
         </ScrollReveal>
 
-        {/* Projects Stack: Each Project Card is immediately followed by its large showcase visual */}
+        {/* Projects Stack: Each Project Card is followed by its large showcase visual if available */}
         <div className="space-y-16">
           {PROJECTS.map((project) => (
             <div key={project.id} className="space-y-6">
               <ScrollReveal delay={100}>
                 <ProjectCard project={project} />
               </ScrollReveal>
-              <ScrollReveal delay={180}>
-                <ProjectShowcaseVisual projectId={project.id} />
-              </ScrollReveal>
+              {['krishimitra', 'pradarshak-ai'].includes(project.id) && (
+                <ScrollReveal delay={180}>
+                  <ProjectShowcaseVisual projectId={project.id} />
+                </ScrollReveal>
+              )}
             </div>
           ))}
         </div>
@@ -53,8 +55,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     switch (id) {
       case 'krishimitra':
         return <Sprout className="w-5 h-5 text-[#9DB7A5]" />;
+      case 'raglab':
+        return <BookOpen className="w-5 h-5 text-[#9DB7A5]" />;
       case 'pradarshak-ai':
         return <Database className="w-5 h-5 text-[#9DB7A5]" />;
+      case 'crawlforge':
+        return <Globe className="w-5 h-5 text-[#9DB7A5]" />;
+      case 'secure-proxy-gateway':
+        return <Shield className="w-5 h-5 text-[#9DB7A5]" />;
       default:
         return <Sparkles className="w-5 h-5 text-[#9DB7A5]" />;
     }
@@ -100,6 +108,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               {project.subtitle}
             </p>
           </div>
+
+          {/* Project description if provided */}
+          {project.description && (
+            <p className="text-xs sm:text-sm text-[#B8B3AA] leading-relaxed pt-1">
+              {project.description}
+            </p>
+          )}
 
           {/* Consistent Bullet-Style Engineering Highlights for ALL Projects */}
           {project.points && project.points.length > 0 && (

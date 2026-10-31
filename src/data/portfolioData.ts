@@ -117,6 +117,32 @@ export const PROJECTS: Project[] = [
     githubUrl: "https://github.com/palakchiraniya03/krishimitra"
   },
   {
+    id: "raglab",
+    title: "RAGLab – Offline RAG Workbench",
+    subtitle: "Offline Knowledge Base & Document Q&A Platform",
+    projectType: "AI / Offline RAG",
+    focusOrContextLabel: "FOCUS",
+    focusOrContextValue: "Local Knowledge Base",
+    description: "An offline-first Retrieval-Augmented Generation (RAG) workbench that allows users to ingest documents, build a searchable knowledge base, and perform AI-powered question answering over their documents.",
+    flowSteps: ["Parse & Chunk", "Ollama Embeddings", "Qdrant Retrieval", "Local LLM Answer"],
+    technologies: [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "Python",
+      "RAG",
+      "Qdrant",
+      "Ollama",
+      "Gemma 3 1B"
+    ],
+    points: [
+      "Engineered an offline-first RAG pipeline using FastAPI, local Qdrant vector storage, and Ollama embeddings with zero cloud dependencies.",
+      "Implemented multi-format document ingestion (PDF, DOCX, TXT, MD) with SHA-256 deduplication and hybrid semantic-lexical retrieval.",
+      "Built a React and TypeScript workbench featuring a Retrieval Inspector, numbered source evidence citations, and local Gemma 3 generation."
+    ],
+    githubUrl: "https://github.com/palakchiraniya03/raglab"
+  },
+  {
     id: "pradarshak-ai",
     title: "Pradarshak AI",
     subtitle: "Loan Scheme Discovery Platform",
@@ -138,6 +164,55 @@ export const PROJECTS: Project[] = [
       "Engineered a rule-based scheme-ranking engine using weighted multi-criteria scoring with hard eligibility filters.",
       "Implemented PostGIS-based geo-spatial search to retrieve partner branches within 150 km with Nominatim fallback."
     ]
+  },
+  {
+    id: "crawlforge",
+    title: "CrawlForge – Web Crawler",
+    subtitle: "Safe Asynchronous Crawler & Hybrid Search Engine",
+    projectType: "TypeScript / Node.js / Search",
+    focusOrContextLabel: "FOCUS",
+    focusOrContextValue: "Web Crawling & Search",
+    description: "A safe, production-grade asynchronous web crawler, persistent document store, and hybrid BM25 + vector search engine built with TypeScript, Node.js, and MongoDB.",
+    flowSteps: ["URL Frontier", "SSRF-Safe Crawler", "Page Versioning", "BM25 & Vector Search"],
+    technologies: [
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "BM25 Search",
+      "Vector Embeddings",
+      "Playwright"
+    ],
+    points: [
+      "Architected an asynchronous BFS crawler featuring domain rate limiting, robots.txt compliance, and strict SSRF DNS-resolution defense.",
+      "Engineered a content-hashed page store with HTTP conditional requests (ETag / Last-Modified) and optimistic concurrency versioning.",
+      "Implemented a hybrid search engine combining BM25 lexical ranking and dense vector embeddings using Reciprocal Rank Fusion (RRF)."
+    ],
+    githubUrl: "https://github.com/palakchiraniya03/CrawlForge"
+  },
+  {
+    id: "secure-proxy-gateway",
+    title: "SecureProxyGateway – Secure Proxy",
+    subtitle: "C++17 Multi-Threaded Forward Proxy & CONNECT Tunnel",
+    projectType: "C++17 / Systems & Security",
+    focusOrContextLabel: "FOCUS",
+    focusOrContextValue: "Systems & Network Security",
+    description: "A security-hardened HTTP/1.1 forward proxy and HTTPS CONNECT tunneling gateway built in modern C++17 with POSIX sockets, multi-threaded worker pools, and SSRF prevention.",
+    flowSteps: ["Client Connection", "Proxy Auth (RFC 7617)", "SSRF IP Filter", "Worker Pool / TCP Tunnel"],
+    technologies: [
+      "C++17",
+      "POSIX Sockets",
+      "Multithreading",
+      "Network Security",
+      "CMake",
+      "TCP/IP"
+    ],
+    points: [
+      "Engineered an HTTP/1.1 forward proxy and HTTPS CONNECT tunnel in modern C++17 using POSIX sockets and non-blocking I/O multiplexing.",
+      "Built a concurrent architecture with a fixed-size worker thread pool (32 threads), condition variables, and a thread-safe task queue.",
+      "Implemented defense-in-depth security with RFC 7617 Basic Proxy Authentication, hop-by-hop header stripping, and comprehensive SSRF IP filtering."
+    ],
+    githubUrl: "https://github.com/palakchiraniya03/SecureProxyGateway"
   }
 ];
 

@@ -31,7 +31,7 @@ export const InteractiveHeroTitle: React.FC = () => {
         color="#F4F1EA"
         align="left"
         draggable={false}
-        sweep={false}
+        sweep={true}
       />
     </div>
   );

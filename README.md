@@ -22,17 +22,25 @@ Personal portfolio website showcasing my projects, technical skills, achievement
 
 ## Featured Projects
 
-### KrishiMitra
+### 1. KrishiMitra
 AI-powered smart irrigation platform combining IoT, ML forecasting, rule-based irrigation decisions, and RAG.
 - **Repository**: [github.com/palakchiraniya03/krishimitra](https://github.com/palakchiraniya03/krishimitra)
 
-### AI-Based Fake Identity Document Screening System
-Collaborative AI-based system for identity document screening, anomaly detection, and fraud risk analysis.
-- **Repository**: [github.com/tishabora6111/Al-Based-Fake-Identity-Document-Screening-System](https://github.com/tishabora6111/Al-Based-Fake-Identity-Document-Screening-System.git)
+### 2. RAGLab – Offline RAG Workbench
+Offline-first Retrieval-Augmented Generation workbench for ingesting documents, building a local vector knowledge base, and question answering with local models.
+- **Repository**: [github.com/palakchiraniya03/raglab](https://github.com/palakchiraniya03/raglab)
 
-### Pradarshak AI
-AI-powered loan scheme discovery platform using eligibility filtering, weighted ranking, and geospatial search.
-- **Access**: Private Repository
+### 3. Pradarshak AI
+AI-powered loan scheme discovery platform using eligibility filtering, weighted ranking, and PostGIS geospatial search.
+- **Repository**: [github.com/palakchiraniya03/PradarsakAI](https://github.com/palakchiraniya03/PradarsakAI)
+
+### 4. CrawlForge – Web Crawler
+Safe, production-grade asynchronous web crawler, persistent document store, and hybrid BM25 + vector search engine.
+- **Repository**: [github.com/palakchiraniya03/CrawlForge](https://github.com/palakchiraniya03/CrawlForge)
+
+### 5. SecureProxyGateway – Secure Proxy
+Security-hardened HTTP/1.1 forward proxy and HTTPS CONNECT tunneling gateway built in modern C++17 with POSIX sockets and worker thread pools.
+- **Repository**: [github.com/palakchiraniya03/SecureProxyGateway](https://github.com/palakchiraniya03/SecureProxyGateway)
 
 ## Connect
 
