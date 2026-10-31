@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Sparkles, CheckCircle2, Users, ArrowRight, Lock, Sprout, Database, ChevronRight, BookOpen, Globe, Shield } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
 import { GithubIcon } from './SocialIcons';
 import { ScrollReveal } from './ScrollReveal';
+import { ProjectMicroVisual } from './ProjectMicroVisual';
 
 export const Projects = () => {
   return (
@@ -43,6 +44,8 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const getProjectIcon = (id: string) => {
     switch (id) {
       case 'krishimitra':
@@ -61,7 +64,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <div className="tech-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/40 shadow-sm">
+    <div
+      className="tech-card p-6 sm:p-8 rounded-2xl relative overflow-hidden group bg-[#292929] border border-[#41403C] hover:border-[#9DB7A5]/40 shadow-sm transition-all duration-300"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start relative z-10">
         
         {/* Left main content column */}
@@ -139,15 +146,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </div>
 
         {/* Right Action & Metadata Column */}
-        <div className="lg:col-span-4 flex flex-col justify-between h-full pt-6 lg:pt-0 lg:border-l lg:border-[#41403C]/50 lg:pl-8 space-y-6">
+        <div className="lg:col-span-4 flex flex-col justify-between h-full pt-6 lg:pt-0 lg:border-l lg:border-[#41403C]/50 lg:pl-8 space-y-5">
           
-          {/* Metadata Summary & Pipeline Flow */}
-          <div className="space-y-6">
-            <div className="space-y-3">
+          {/* Micro-Visualization & Metadata Area */}
+          <div className="space-y-4">
+            {/* Subtle Project-Specific Concept Micro-Animation */}
+            <ProjectMicroVisual projectId={project.id} isHovered={isHovered} />
+
+            {/* Attributes Box */}
+            <div className="space-y-2">
               <div className="text-[11px] font-mono text-[#B8B3AA]/70 uppercase tracking-wider font-medium">
                 Metadata & Attributes
               </div>
-              <div className="p-4 rounded-xl bg-[#252525] border border-[#41403C] space-y-3 font-mono text-xs">
+              <div className="p-3.5 rounded-xl bg-[#252525] border border-[#41403C] space-y-2.5 font-mono text-xs">
                 <div className="flex items-center justify-between text-[#F4F1EA]">
                   <span className="text-[#B8B3AA]/70">CATEGORY:</span>
                   <span className="text-[#9DB7A5] font-semibold">{project.projectType}</span>
@@ -167,22 +178,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               </div>
             </div>
 
-            {/* Minimal Pipeline Flow Visual */}
+            {/* Architecture Pipeline Flow Visual */}
             {project.flowSteps && project.flowSteps.length > 0 && (
-              <div className="space-y-3 pt-1">
+              <div className="space-y-2 pt-0.5">
                 <div className="text-[11px] font-mono text-[#B8B3AA]/70 uppercase tracking-wider font-medium flex items-center justify-between">
                   <span>Architecture Flow</span>
                   <span className="text-[10px] text-[#9DB7A5]/80 font-mono font-semibold">PIPELINE</span>
                 </div>
-                <div className="p-4 rounded-xl bg-[#252525] border border-[#41403C]">
+                <div className="p-3.5 rounded-xl bg-[#252525] border border-[#41403C]">
                   <div className="flex items-center gap-1.5 flex-wrap font-mono text-[11px]">
                     {project.flowSteps.map((step, idx) => (
                       <React.Fragment key={step}>
-                        <span className="px-2 py-1 rounded bg-[#303030] border border-[#41403C] text-[#F4F1EA] font-medium shrink-0">
+                        <span className="px-2 py-0.5 rounded bg-[#303030] border border-[#41403C] text-[#F4F1EA] font-medium shrink-0 text-[10.5px]">
                           {step}
                         </span>
                         {idx < project.flowSteps!.length - 1 && (
-                          <ChevronRight className="w-3.5 h-3.5 text-[#9DB7A5]/70 shrink-0" />
+                          <ChevronRight className="w-3 h-3 text-[#9DB7A5]/70 shrink-0" />
                         )}
                       </React.Fragment>
                     ))}
@@ -193,7 +204,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </div>
 
           {/* Action Area */}
-          <div className="pt-2">
+          <div className="pt-1">
             {project.isPrivate ? (
               <div 
                 title="Source available upon request"

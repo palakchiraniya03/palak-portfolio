@@ -183,8 +183,9 @@ export const TechText = ({
     let word: Word | null = null;
     let glyphs: Glyph[] = [];
     let presence = 0;
-    let clock = 0;
     let pulse = 0;
+    let sweepProgress = 0;
+    let sweepCompleted = false;
     let placed = false;
     let dragging = -1;
     let cursor = '';
@@ -834,14 +835,52 @@ export const TechText = ({
       const progress = introOn ? clamp01((introClock - INTRO_DELAY) / Math.max(0.3, s.introDuration)) : 1;
       introducing = introOn && progress < 1;
 
-      const sweeping = !introducing && s.sweep && !reducedMotion && !pointer.inside && dragging < 0;
-      if (sweeping) clock += dt * s.speed;
+      const introSweepActive =
+        !introducing &&
+        s.sweep &&
+        !sweepCompleted &&
+        dragging < 0;
+
+      if (introSweepActive) {
+        if (glyphs.length > 0) {
+          sweepProgress += (dt * s.speed) / 3.0;
+          if (sweepProgress >= 1.0) {
+            sweepProgress = 1.0;
+            sweepCompleted = true;
+          }
+        }
+      }
+
+      const sweeping = introSweepActive && glyphs.length > 0;
       pulse += dt;
       let targetX = pointer.x;
       let targetY = pointer.y;
+      let sweepFocus = -1;
       if (sweeping) {
-        targetX = view.left + (view.right - view.left) * (0.5 - 0.5 * Math.cos(clock * 0.45));
-        targetY = view.top + (view.bottom - view.top) * (0.45 + 0.1 * Math.sin(clock * 0.8));
+        const total = glyphs.length;
+        const progressP = clamp01(sweepProgress);
+        const targetIndexFloat = progressP * total;
+        const curIdx = Math.min(total - 1, Math.floor(targetIndexFloat));
+        const nextIdx = Math.min(total - 1, curIdx + 1);
+        const frac = targetIndexFloat - curIdx;
+
+        const gCur = glyphs[curIdx];
+        const gNext = glyphs[nextIdx];
+        const curCenterX = (gCur.box.x1 + gCur.box.x2) / 2;
+        const curCenterY = (gCur.box.y1 + gCur.box.y2) / 2;
+        const nextCenterX = (gNext.box.x1 + gNext.box.x2) / 2;
+        const nextCenterY = (gNext.box.y1 + gNext.box.y2) / 2;
+
+        if (progressP >= 0.94) {
+          const lastG = glyphs[total - 1];
+          targetX = lastG.box.x2 + 45;
+          targetY = (lastG.box.y1 + lastG.box.y2) / 2;
+          sweepFocus = -1;
+        } else {
+          targetX = curCenterX + (nextCenterX - curCenterX) * frac;
+          targetY = curCenterY + (nextCenterY - curCenterY) * frac;
+          sweepFocus = curIdx;
+        }
       }
       const active = !introducing && (pointer.inside || sweeping || dragging >= 0);
       if (active && !placed) {
@@ -849,7 +888,7 @@ export const TechText = ({
         lens.y = targetY;
       }
       if (active) {
-        const lag = pointer.inside ? 0.05 : 0.22;
+        const lag = pointer.inside ? 0.05 : 0.12;
         lens.x = approach(lens.x, targetX, dt, lag);
         lens.y = approach(lens.y, targetY, dt, lag);
       }
@@ -902,7 +941,15 @@ export const TechText = ({
         });
       }
 
-      const focus = introducing ? typing : dragging >= 0 ? dragging : active ? glyphAt(lens.x, lens.y) : -1;
+      const focus = introducing
+        ? typing
+        : dragging >= 0
+          ? dragging
+          : sweeping
+            ? sweepFocus
+            : active
+              ? glyphAt(lens.x, lens.y)
+              : -1;
       if (focus >= 0 && s.selection) {
         const glyph = glyphs[focus];
         const bx1 = glyph.box.x1 + glyph.offset.x - 6;
@@ -995,6 +1042,19 @@ export const TechText = ({
       });
       if (presence > 0.001) drawReveal(s);
       drawFrame(s, accent);
+
+      if (typeof window !== 'undefined') {
+        (window as any).__techTextState = {
+          sweeping,
+          sweepProgress,
+          sweepCompleted,
+          focus,
+          frameAlpha: frame.alpha,
+          active,
+          glyphsCount: glyphs.length,
+          lastTick: performance.now()
+        };
+      }
 
       const settling =
         moving ||
