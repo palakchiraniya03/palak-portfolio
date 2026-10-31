@@ -37,8 +37,6 @@ export const Certifications: React.FC = () => {
     }
   };
 
-  const activeCert = CERTIFICATIONS[activeCertIdx] || CERTIFICATIONS[0];
-
   const handlePrev = () => {
     setActiveCertIdx((prev) => (prev > 0 ? prev - 1 : CERTIFICATIONS.length - 1));
   };
@@ -222,18 +220,6 @@ export const Certifications: React.FC = () => {
             })}
           </div>
 
-          {/* Active Credential Detail Callout */}
-          <div className="mt-4 p-4 rounded-xl bg-[#252525] border border-[#41403C] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono">
-            <div className="flex items-center gap-2.5 truncate">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9DB7A5] shrink-0" />
-              <span className="text-[#B8B3AA] shrink-0">Active Credential:</span>
-              <span className="text-[#F4F1EA] font-bold truncate">{activeCert.title}</span>
-            </div>
-            <div className="flex items-center gap-3 text-[#9DB7A5] shrink-0">
-              <span className="text-[#B8B3AA]/60">Platform:</span>
-              <span className="font-semibold">{activeCert.issuer} {activeCert.platform ? `· ${activeCert.platform}` : ''}</span>
-            </div>
-          </div>
 
         </div>
 
