@@ -97,6 +97,7 @@ export const PROJECTS: Project[] = [
     projectType: "AI / IoT",
     focusOrContextLabel: "FOCUS",
     focusOrContextValue: "Smart Irrigation",
+    description: "An AI-powered smart irrigation platform leveraging IoT field sensing, real-time weather forecasts, scikit-learn moisture predictions, and RAG advisory generation.",
     flowSteps: ["ESP32 Sensing", "Firebase & FastAPI", "ML & Rule Engine", "Advisory App"],
     technologies: [
       "Python",
@@ -150,8 +151,9 @@ export const PROJECTS: Project[] = [
     focusOrContextLabel: "CONTEXT",
     focusOrContextValue: "SIH 2026",
     context: "SIH 2026",
+    description: "An AI-powered loan scheme discovery platform featuring multi-criteria weighted ranking, eligibility filtering, and PostGIS geospatial partner search within 150 km.",
     githubUrl: "https://github.com/palakchiraniya03/PradarsakAI",
-    flowSteps: ["Eligibility", "Ranking", "Geo Search"],
+    flowSteps: ["Eligibility Rules", "Scheme Ranking", "PostGIS 150km Search", "EMI Schedule"],
     technologies: [
       "TypeScript",
       "Express.js",

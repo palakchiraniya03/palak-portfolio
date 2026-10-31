@@ -5,7 +5,6 @@ import type { Project } from '../data/portfolioData';
 import { MagneticButton } from './MagneticButton';
 import { GithubIcon } from './SocialIcons';
 import { ScrollReveal } from './ScrollReveal';
-import { ProjectShowcaseVisual } from './ProjectShowcaseVisual';
 
 export const Projects = () => {
   return (
@@ -25,19 +24,12 @@ export const Projects = () => {
           </h2>
         </ScrollReveal>
 
-        {/* Projects Stack: Each Project Card is followed by its large showcase visual if available */}
-        <div className="space-y-16">
-          {PROJECTS.map((project) => (
-            <div key={project.id} className="space-y-6">
-              <ScrollReveal delay={100}>
-                <ProjectCard project={project} />
-              </ScrollReveal>
-              {['krishimitra', 'pradarshak-ai'].includes(project.id) && (
-                <ScrollReveal delay={180}>
-                  <ProjectShowcaseVisual projectId={project.id} />
-                </ScrollReveal>
-              )}
-            </div>
+        {/* Projects Stack: Exactly one structured project card for each of the five projects */}
+        <div className="space-y-12">
+          {PROJECTS.map((project, index) => (
+            <ScrollReveal key={project.id} delay={index * 60}>
+              <ProjectCard project={project} />
+            </ScrollReveal>
           ))}
         </div>
 
